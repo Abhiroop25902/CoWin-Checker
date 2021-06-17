@@ -85,7 +85,7 @@ def look_for_slot(cowin, toaster, district_id, required_center_ids, minimum_age)
                             "Slot Available",  # title
                             # message
                             f"Name: {center['name']}\nDose 1 Slots: {session['available_capacity_dose1']}\nAge Limit: {session['min_age_limit']}\nDate: {date}",
-                            icon_path="Aarogya_Setu_App_Logo.ico",  # 'icon_path'
+                            icon_path= None,  # 'icon_path'
                             duration=5,  # for how many seconds toast should be visible;
                             threaded=True,  # True = run other code in parallel; False = code execution will wait till notification disappears
                         )
