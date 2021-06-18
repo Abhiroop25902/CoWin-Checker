@@ -14,7 +14,8 @@ Thanks to [@jithurjacob](https://github.com/jithurjacob) for providing [Win10 To
 2.  Open `Cowin Slot Checker.py` and do the first time setup
     1. Comment following line, this calls the main working code, which is useful only after all the setup procedure.
         ```python
-        # now this will check for all the given centers for any available vaccine slot every refresh_time_min, and will give a win10 notification, if slot found
+        # now this will check for all the given centers for any available vaccine slot every refresh_time_min, 
+        # and will give a win10 notification, if slot found
 
         while True:                                                                     #<------------------
             call_fn(cowin, toaster,  district_id,                                       #<------------------
@@ -49,7 +50,8 @@ Thanks to [@jithurjacob](https://github.com/jithurjacob) for providing [Win10 To
         ```
     5. Now your setup is over, uncomment the main working code
         ```python
-        # now this will check for all the given centers for any available vaccine slot every refresh_time_min, and will give a win10 notification, if slot found
+        # now this will check for all the given centers for any available vaccine slot every refresh_time_min, 
+        # and will give a win10 notification, if slot found
 
         while True:                                                                   
             call_fn(cowin, toaster,  district_id,                                       
