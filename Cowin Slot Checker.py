@@ -124,7 +124,7 @@ def look_for_slot(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, req
             if(center['center_id'] in required_center_ids):
                 for session in center['sessions']:
                     if(dose_no == 1):
-                        if(session['available_capacity_dose1'] == 0):
+                        if(session['available_capacity_dose1'] > 0):
                             print(
                                 f"Time: {curr_time()}; Name: {center['name']}; Pincode: {center['pincode']};  Age Limit: {session['min_age_limit']}; Date: {date}; Dose 1 Slots: {session['available_capacity_dose1']}")
                             # showcase
