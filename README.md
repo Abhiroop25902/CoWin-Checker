@@ -17,9 +17,9 @@ Thanks to [@jithurjacob](https://github.com/jithurjacob) for providing [Win10 To
         # now this will check for all the given centers for any available vaccine slot every
         # refresh_time_min, and will give a win10 notification, if slot found
 
-        while True:                                                                     #<------------------
-            call_fn(cowin, toaster,  district_id,                                       #<------------------
-                    required_center_ids, minimum_age=18, dose_no=1, refresh_time_min=1) #<------------------
+        while True:                                                                    #<------------------
+            call_fn(cowin, toaster,  district_id,                                      #<------------------
+                    required_center_ids, minimum_age=18, dose_no=1, refresh_time_min=1)#<------------------
 
         ```
     2.  Uncomment the following line and run script to update `state_list.csv`, and consequently update the `state_id` to match with your state, re-comment this line again after setup.
