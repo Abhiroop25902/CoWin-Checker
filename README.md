@@ -14,8 +14,8 @@ Thanks to [@jithurjacob](https://github.com/jithurjacob) for providing [Win10 To
 2.  Open `Cowin Slot Checker.py` and do the first time setup
     1. Comment following line, this calls the main working code, which is useful only after all the setup procedure.
         ```python
-        # now this will check for all the given centers for any available vaccine slot every refresh_time_min, 
-        # and will give a win10 notification, if slot found
+        # now this will check for all the given centers for any available vaccine slot every
+        # refresh_time_min, and will give a win10 notification, if slot found
 
         while True:                                                                     #<------------------
             call_fn(cowin, toaster,  district_id,                                       #<------------------
@@ -41,7 +41,8 @@ Thanks to [@jithurjacob](https://github.com/jithurjacob) for providing [Win10 To
         ```
     4. Uncomment the following line and run script to update `center_list.csv`, and consequently update the `required_center_ids` to match with your the centers you want the script to watch, re-comment this line again after setup
         ```python
-        # now run the below commented command with your district_id to get all the centers pincode, center_id, and name
+        # now run the below commented command with your district_id to get all the center's 
+        # pincode, center_id, and name
 
         # print_all_centers(cowin, district_id) <------------------
 
@@ -50,8 +51,8 @@ Thanks to [@jithurjacob](https://github.com/jithurjacob) for providing [Win10 To
         ```
     5. Now your setup is over, uncomment the main working code
         ```python
-        # now this will check for all the given centers for any available vaccine slot every refresh_time_min, 
-        # and will give a win10 notification, if slot found
+        # now this will check for all the given centers for any available vaccine slot every
+        # refresh_time_min, and will give a win10 notification, if slot found
 
         while True:                                                                   
             call_fn(cowin, toaster,  district_id,                                       
