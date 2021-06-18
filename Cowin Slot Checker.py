@@ -94,7 +94,7 @@ def look_for_slot(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, req
                                 # message
                                 f"Name: {center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {date}\nDose 1 Slots: {session['available_capacity_dose1']}",
                                 icon_path=None,  # 'icon_path'
-                                duration=10,  # for how many seconds toast should be visible;
+                                duration=5,  # for how many seconds toast should be visible;
                                 threaded=True,  # True = run other code in parallel; False = code execution will wait till notification disappears
                             )
                             # Wait for threaded notification to finish
@@ -110,7 +110,7 @@ def look_for_slot(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, req
                                 # message
                                 f"Name: {center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {date}\nDose 2 Slots: {session['available_capacity_dose2']}",
                                 icon_path=None,  # 'icon_path'
-                                duration=10,  # for how many seconds toast should be visible;
+                                duration=5,  # for how many seconds toast should be visible;
                                 threaded=True,  # True = run other code in parallel; False = code execution will wait till notification disappears
                             )
                             # Wait for threaded notification to finish
