@@ -90,7 +90,8 @@ PS file_directory> python '.\Cowin Slot Checker.py'
     -   Do not close powershell window, while this is being executed hoping that it will happen in background, Windows doesn't allows this, and will automatically close the script once powershell windows get closed.
 
 ## Future Plans
-
-1. Make Setup Procedure Simpler
-2. Add GUI, or convert this to full-fledged service
-3. Make the script Operating System Independent
+1. Code Cleanup
+2. Try to website deploy/ Discord/ Telegram Bot
+3. Make Setup Procedure Simpler
+4. Add GUI, or convert this to full-fledged service
+5. Make the script Operating System Independent
