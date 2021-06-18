@@ -183,20 +183,22 @@ cowin = CoWinAPI()
 toaster = ToastNotifier()
 
 # first run the below commented command to get the list of all states and their id's
+
 # print_all_states(cowin)
 
 state_id = '21'
 state_name = 'Maharashtra'
 
 # now run the below commented command with your state_id to get all district and their district_ids
+
 # print_all_district(cowin, state_id)
 
 district_id = '395'
 district_name = 'Mumbai'
 
 # now run the below commented command with your district_id to get all the centers pincode, center_id, and name
-# print_all_centers(cowin, district_id)
 
+# print_all_centers(cowin, district_id)
 
 # now select make your preferred list of centers to check
 required_center_ids = {695695, 597000, 694629}
@@ -207,6 +209,7 @@ required_names = {"The World Tower MCGM Parkg", "P D Hinduja 1",
                   "KOHINOOR PUB PARKING (DRIVE)"}
 
 # now this will check for all the given centers for any available vaccine slot every refresh_time_min, and will give a win10 notification, if slot found
+
 while True:
     call_fn(cowin, toaster,  district_id,
             required_center_ids, minimum_age=18, dose_no=1,refresh_time_min=1)
