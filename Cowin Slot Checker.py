@@ -68,6 +68,12 @@ def today() -> str:
     return Day_Date_Formatted
 
 
+def curr_time() -> str:
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    return current_time
+
+
 def look_for_slot(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, required_center_ids: list[str], minimum_age: int, dose_no: int):
     dates = {today(), tomorrow()}
 
@@ -80,11 +86,13 @@ def look_for_slot(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, req
                 for session in center['sessions']:
                     if(dose_no == 1):
                         if(session['available_capacity_dose1'] > 0):
+                            print(
+                                f"Time: {curr_time()}; Name: {center['name']}; Pincode: {center['pincode']};  Age Limit: {session['min_age_limit']}; Date: {date}; Dose 1 Slots: {session['available_capacity_dose1']}")
                             # showcase
                             toaster.show_toast(
                                 "Slot Available",  # title
                                 # message
-                                f"Name: {center['name']}\nPincode: {center['pincode']}\nDose 1 Slots: {session['available_capacity_dose1']}\nAge Limit: {session['min_age_limit']}\nDate: {date}",
+                                f"Name: {center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {date}\nDose 1 Slots: {session['available_capacity_dose1']}",
                                 icon_path=None,  # 'icon_path'
                                 duration=10,  # for how many seconds toast should be visible;
                                 threaded=True,  # True = run other code in parallel; False = code execution will wait till notification disappears
@@ -94,11 +102,13 @@ def look_for_slot(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, req
                                 time.sleep(0.1)
                     elif(dose_no == 2):
                         if(session['available_capacity_dose2'] > 0):
+                            print(
+                                f"Time: {curr_time()}; Name: {center['name']}; Pincode: {center['pincode']}; Age Limit: {session['min_age_limit']}; Date: {date};  Dose 2 Slots: {session['available_capacity_dose2']}")
                             # showcase
                             toaster.show_toast(
                                 "Slot Available",  # title
                                 # message
-                                f"Name: {center['name']}\nPincode: {center['pincode']}\nDose 2 Slots: {session['available_capacity_dose2']}\nAge Limit: {session['min_age_limit']}\nDate: {date}",
+                                f"Name: {center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {date}\nDose 2 Slots: {session['available_capacity_dose2']}",
                                 icon_path=None,  # 'icon_path'
                                 duration=10,  # for how many seconds toast should be visible;
                                 threaded=True,  # True = run other code in parallel; False = code execution will wait till notification disappears
@@ -112,7 +122,7 @@ def look_for_slot(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, req
 
 
 def call_fn(cowin: CoWinAPI, toaster: ToastNotifier, district_id: str, required_center_ids: list[str], minimum_age: int = 18, refresh_time_min: int = 5, dose_no: int = 1):
-    '''Checks for available 1 doses in given centers every 10 minutes'''
+    '''Checks for available 1 doses in given centers every 5 minutes'''
     look_for_slot(cowin, toaster, district_id,
                   required_center_ids, minimum_age, dose_no)
     time.sleep(60*refresh_time_min)
