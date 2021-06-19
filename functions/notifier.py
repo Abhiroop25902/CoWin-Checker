@@ -11,4 +11,5 @@ def show_notification(message: str, title: str = "Slot Available"):
     '''
     notification.title = title
     notification.message = message
+    notification.icon = "icon/notification_icon.png"
     notification.send()
