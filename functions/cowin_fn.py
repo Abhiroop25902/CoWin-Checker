@@ -1,8 +1,8 @@
 from cowin_api import CoWinAPI
 import sys
 
-import notifier
-import utils
+from functions import notifier
+from functions import utils
 
 cowin = CoWinAPI()
 

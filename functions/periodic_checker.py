@@ -1,4 +1,4 @@
-import cowin_fn
+from functions import cowin_fn
 import time
 
 

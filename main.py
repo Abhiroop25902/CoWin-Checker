@@ -1,5 +1,5 @@
-import cowin_fn
-import periodic_checker
+from functions import cowin_fn
+from functions import periodic_checker
 
 # <-------------------------------------------- Main Code -------------------------------------------->
 # initialization
