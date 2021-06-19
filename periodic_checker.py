@@ -12,7 +12,13 @@ def start_check(district_id: str, lookup_center_ids: list[str], minimum_age: int
     dose_no: give 1 for first_dose, 2 for second_dose
     refresh_time_min: the time the script should wait before rechecking for available doses
     '''
-    while True:
-        cowin_fn.look_for_slot(district_id,
-                               lookup_center_ids, minimum_age, dose_no)
-        time.sleep(60*refresh_time_min)
+    try:
+        while True:
+            cowin_fn.look_for_slot(district_id,
+                                lookup_center_ids, minimum_age, dose_no)
+            time.sleep(60*refresh_time_min)
+    except KeyboardInterrupt:
+        print("Pressed Ctrl+C, Closing Checker....")
+        pass
+
+
