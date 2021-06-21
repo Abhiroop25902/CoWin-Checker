@@ -26,6 +26,8 @@ def print_all_states(filename: str = "./data/state_list.csv"):
 
     sys.stdout = default_stdout
 
+    print("Updated state list, see them in './data/state_list.csv'")
+
 
 def print_all_district(state_id: str, filename: str = "./data/district_list.csv"):
     '''
@@ -46,6 +48,9 @@ def print_all_district(state_id: str, filename: str = "./data/district_list.csv"
                 f"{district['district_id']} ,{district['district_name']}")
 
     sys.stdout = default_stdout
+
+    print(
+        f"Updated district list for state_id: {state_id}, see them in './data/district_list.csv'.")
 
 
 def print_all_centers(district_id: str, filename="./data/center_list.csv"):
@@ -69,6 +74,9 @@ def print_all_centers(district_id: str, filename="./data/center_list.csv"):
 
     sys.stdout = default_stdout
 
+    print(
+        f"Updated center list for district_id: {district_id}, see them in './data/center_list.csv'.")
+
 
 def look_for_slot(district_id: str, required_center_ids: list[str], minimum_age: int, dose_no: int):
     '''
@@ -76,7 +84,7 @@ def look_for_slot(district_id: str, required_center_ids: list[str], minimum_age:
 
         district_id: the district_id where you want to search for
         required_center_ids: list of center_ids where you want to look for available vaccine
-        minimum_age: the minimum age, enter 18 for 18-45 group and 45 for 45+ group
+        minimum_age: the minimum age, enter 18 for 18+ group, 30 for 30+ group and 45 for 45+ group
         dose_no: give 1 for first_dose, 2 for second_dose
     '''
     dates = {utils.today(), utils.tomorrow()}
