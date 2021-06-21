@@ -13,6 +13,8 @@ def start_check(district_id: str, lookup_center_ids: list[str], minimum_age: int
     refresh_time_min: the time the script should wait before rechecking for available doses
     '''
     print("Starting Checker, 'Ctrl+C' to stop the checker")
+    print(f'minimum_age: {minimum_age}')
+    print(f'dose_no: {dose_no}')
 
     try:
         while True:
