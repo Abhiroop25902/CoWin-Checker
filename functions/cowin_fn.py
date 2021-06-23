@@ -99,7 +99,7 @@ def check_dose(dose_no:int, center, date):
             raise ValueError("Dose Number Invalid")
 
 
-def look_for_slot(district_id: str, required_center_ids: list[str], minimum_age: int, dose_no: int):
+def look_for_slot(district_id: str, required_center_ids: 'list[str]', minimum_age: int, dose_no: int):
     '''
         Base Function which does the actual work, uses CoWinAPI to get all the center's session in your district_id, then specifically searches in only required_center_ids for available vaccine, if any vaccine slot is found, it give off a Win10 Notification as well as command line verbose
 

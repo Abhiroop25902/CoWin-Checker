@@ -2,7 +2,7 @@ from functions import cowin_fn
 import time
 
 
-def start_check(district_id: str, lookup_center_ids: list[str], minimum_age: int = 18, dose_no: int = 1, refresh_time_min: int = 5):
+def start_check(district_id: str, lookup_center_ids: 'list[str]', minimum_age: int = 18, dose_no: int = 1, refresh_time_min: int = 5):
     '''
     Start the checker, which checks periodically for available vaccines in lookup_center_ids, and gives notification if any vaccine_slot found
 
