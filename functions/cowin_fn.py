@@ -78,7 +78,7 @@ def print_all_centers(district_id: str, filename="./data/center_list.csv"):
         f"Updated center list for district_id: {district_id}, see them in './data/center_list.csv'.")
 
 
-def check_dose(dose_no:int, center, date):
+def check_dose(dose_no: int, center):
     '''
     checks for available dose_no in center and date given, gives notification if dose found
     '''
@@ -86,15 +86,15 @@ def check_dose(dose_no:int, center, date):
         if(dose_no == 1):
             if(session['available_capacity_dose1'] > 0):
                 print(
-                    f"Time: {utils.curr_time()}; Name: {center['name']}; Pincode: {center['pincode']};  Age Limit: {session['min_age_limit']}; Date: {date}; Dose 1 Slots: {session['available_capacity_dose1']}")
+                    f"Time: {utils.curr_time()}; Name: {center['name']}; Pincode: {center['pincode']};  Age Limit: {session['min_age_limit']}; Date: {session['date']}; Dose 1 Slots: {session['available_capacity_dose1']}")
                 notifier.show_notification(
-                    f"{center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {date}\nDose 1 Slots: {session['available_capacity_dose1']}")
+                    f"{center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {session['date']}\nDose 1 Slots: {session['available_capacity_dose1']}")
         elif(dose_no == 2):
             if(session['available_capacity_dose2'] > 0):
                 print(
-                    f"Time: {utils.curr_time()}; Name: {center['name']}; Pincode: {center['pincode']}; Age Limit: {session['min_age_limit']}; Date: {date};  Dose 2 Slots: {session['available_capacity_dose2']}")
+                    f"Time: {utils.curr_time()}; Name: {center['name']}; Pincode: {center['pincode']}; Age Limit: {session['min_age_limit']}; Date: {session['date']};  Dose 2 Slots: {session['available_capacity_dose2']}")
                 notifier.show_notification(
-                    f"{center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {date}\nDose 2 Slots: {session['available_capacity_dose2']}")
+                    f"{center['name']} @ {center['pincode']}\nAge Limit: {session['min_age_limit']}\nDate: {session['date']}\nDose 2 Slots: {session['available_capacity_dose2']}")
         else:
             raise ValueError("Dose Number Invalid")
 
@@ -108,17 +108,13 @@ def look_for_slot(district_id: str, required_center_ids: 'list[str]', minimum_ag
         minimum_age: the minimum age, enter 18 for 18+ group, 30 for 30+ group and 45 for 45+ group
         dose_no: give 1 for first_dose, 2 for second_dose
     '''
-    dates = [utils.today(), utils.tomorrow()]
+    
+    available_centers = cowin.get_availability_by_district(
+        district_id, min_age_limt=minimum_age)
 
-    for date in dates:
-        available_centers = cowin.get_availability_by_district(
-            district_id, date, minimum_age)
-
-        for center in available_centers['centers']:
-            if(required_center_ids == None):
-                check_dose(dose_no, center, date)
-            else:
-                if(center['center_id'] in required_center_ids):
-                    check_dose(dose_no, center, date)
-                
-                    
+    for center in available_centers['centers']:
+        if(required_center_ids == None):
+            check_dose(dose_no, center)
+        else:
+            if(center['center_id'] in required_center_ids):
+                check_dose(dose_no, center)
