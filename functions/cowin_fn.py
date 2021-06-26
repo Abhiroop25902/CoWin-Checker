@@ -108,7 +108,7 @@ def look_for_slot(district_id: str, required_center_ids: 'list[str]', minimum_ag
         minimum_age: the minimum age, enter 18 for 18+ group, 30 for 30+ group and 45 for 45+ group
         dose_no: give 1 for first_dose, 2 for second_dose
     '''
-    dates = {utils.today(), utils.tomorrow()}
+    dates = [utils.today(), utils.tomorrow()]
 
     for date in dates:
         available_centers = cowin.get_availability_by_district(
